@@ -46,3 +46,8 @@ group :development do
   # gem "spring"
 end
 
+gem "view_component"
+gem "sidekiq", "~> 7.1"
+gem 'sidekiq-scheduler'
+
+
