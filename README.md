@@ -1,5 +1,9 @@
 ### Introduction
-This is sample Ruby and Rails app which runs as server component. We use Sidekiq for background job and Sidekiq-scheduler gem to runs the disbursement generation script everyday at 8am (UTC).
+This is sample Ruby and Rails app which runs as server component. 
+We use `sidekiq`, `sidekiq-scheduler` gems for scheduled background script, 
+which generates disbursement, everyday at 8am (UTC).
+The scheduled background script takes all the orders which happened previous day, or previous week,
+depends on the merchant's `disbursement_frequency`
 
 
 #### Installation
@@ -12,9 +16,13 @@ $ rails db:create db:migrate db:seed
 db seeder will put all the data from CSV files to database
 
 ### Generate Disbursements for all the orders which was there in provided CSV files
-We have script to generate all disburdement based on CSV data. Use following Rake task:
+We have script to generate all disbursement based on CSV data. Use following Rake task:
 ```
 $ rails disburser:disburse_for_past
+```
+Use rails console and run following command to run background script, which generate disbursements.
+```shell
+DisburserJob.perform_sync
 ```
 
 ### Use following rails command to append report into README.md file
