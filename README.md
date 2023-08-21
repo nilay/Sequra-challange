@@ -6,6 +6,9 @@ The scheduled background script takes all the orders which happened previous day
 depends on the merchant's `disbursement_frequency`
 **Due to time constraints, I have not put any unit test for this challenge.**
 
+### Code file you may like to review
+1. app/services/disbursement_service.rb
+2. lib/tasks/report.rake
 
 #### Installation
 Requirements:  Ruby 3.2, PostgreSQL, Redis
