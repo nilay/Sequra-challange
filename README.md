@@ -4,6 +4,7 @@ We use `sidekiq`, `sidekiq-scheduler` gems for scheduled background script,
 which generates disbursement, everyday at 8am (UTC).
 The scheduled background script takes all the orders which happened previous day, or previous week,
 depends on the merchant's `disbursement_frequency`
+**Due to time constraints, I have not put any unit test for this challenge.**
 
 
 #### Installation
